@@ -46,6 +46,14 @@ body {
   font-family: "Noto Sans", sans-serif;
 }
 
+button{
+  font:inherit;
+  color: inherit;
+  background-color: transparent;
+  border:none;
+}
+
+
 img {
   vertical-align: middle;
   max-width: 100%;
@@ -169,6 +177,12 @@ a {
 
 .d-none{
     display: none;
+}
+
+.nav-list {
+  color: var(--color-neutral-700);
+  /* 原先由上層提供背景色；改為絕對定位後，需在選單本身補上背景色 */
+  background-color: var(--color-primary-50);
 }
 
 .btn-reset {
