@@ -309,7 +309,7 @@ a {
 }
 
 .px-12{
-    padding-right: :12px;
+    padding-right:12px;
     padding-left:12px;
 }
 
@@ -570,7 +570,7 @@ a {
   );
 }
 
-@media (max-width: 992px) {
+@media (max-width: 375px) {
   .d-mb-block {
     display: block;
   }
