@@ -1,3 +1,61 @@
-.h1{
-    color: aqua;
+.tab-item{
+    text-align: center;
+    color: var(--color-neutral-700);
+}
+
+.tab-item.active,
+.tab-item:hover{
+    background-color: var(--color-primary-900); 
+    color: var(--color-neutral-0);
+}
+
+.tab-link{
+    display: block; /*因為a標籤為inline因素*/
+    padding: 12px 0;
+}
+
+.card-content{
+    flex:1;
+    color: var(--color-neutral-700);
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    gap: 12px;
+}
+
+/* ========================================= */
+/* 新增的 RWD 程式碼 (針對 767px 以下的手機版) */
+/* ========================================= */
+@media (max-width: 1048px) {
+  /* 4. 三欄/多欄排版在手機要改成一欄：
+    精準選取特定容器，將 flex 排列方向改為垂直 (column)，
+    避免直接修改 .d-flex 導致全域跑版。
+  */
+
+  /* 第一步：讓外層的「側邊選單(col-2)」與「主要內容(col-10)」改成上下垂直排列 */
+  .container > .d-flex {
+    flex-direction: column;
+  }
+
+  /* 第二步：讓卡片內的「圖片」與「文字區塊」改成上下垂直排列，變成真正的一欄 */
+  .col-10 ul li a.d-flex {
+    flex-direction: column;
+  }
+
+  /* 第三步：優化手機版圖片顯示
+     確保圖片容器與圖片本身在手機版能撐滿 100% 寬度，視覺才不會空洞
+  */
+  .card-pic {
+    width: 100%;
+  }
+  
+  .card-pic img {
+    width: 100%;
+    object-fit: cover; /* 確保圖片放大時比例正常，不會被壓扁 */
+  }
+
+  /* (選用) 優化手機版卡片文字區塊的間距，讓畫面更緊湊 */
+  .card-content {
+    gap: 8px;
+  }
 }
