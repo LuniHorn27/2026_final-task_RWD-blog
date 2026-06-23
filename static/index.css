@@ -24,7 +24,7 @@
 }
 
 /* ========================================= */
-/* 新增的 RWD 程式碼 (針對 767px 以下的手機版) */
+/* 新增的 RWD 程式碼  */
 /* ========================================= */
 @media (max-width: 1048px) {
   /* 4. 三欄/多欄排版在手機要改成一欄：
@@ -57,5 +57,62 @@
   /* (選用) 優化手機版卡片文字區塊的間距，讓畫面更緊湊 */
   .card-content {
     gap: 8px;
+  }
+
+  
+}
+
+
+
+/* ========================================= */
+/* 漢堡選單 (桌機版預設設定) */
+/* ========================================= */
+
+/* 永遠隱藏真實的 Checkbox 方塊 */
+#menu-switch {
+  display: none;
+}
+
+/* 桌機版畫面較大，不需要漢堡圖示，先隱藏起來 */
+.hamburger-menu {
+  display: none;
+}
+
+/* ========================================= */
+/* 新增的 RWD 程式碼 (針對 1048px 以下的手機/平板版) */
+/* ========================================= */
+@media (max-width: 1048px) {
+  
+  /* 1. 顯示漢堡圖示，並把它推到畫面右側 */
+  .hamburger-menu {
+    display: flex;
+    justify-content: flex-end; /* 靠右對齊 */
+    cursor: pointer;
+    padding: 8px 16px 16px 0;
+  }
+  
+  /* 把漢堡圖示放大一點，比較好點擊 */
+  .hamburger-menu span {
+    font-size: 32px; 
+  }
+
+  /* 2. 手機版預設狀態：隱藏導覽列內容 */
+  .nav-content {
+    display: none;
+  }
+
+  /* 3. Checkbox Hack 魔法核心：
+     當 id 為 menu-switch 的 checkbox 被勾選時，
+     尋找它後面的兄弟層次 .nav-content，並將它顯示出來 */
+  #menu-switch:checked ~ .nav-content {
+    display: block;
+  }
+
+  /* 4. 優化展開後的選單樣式 */
+  .nav-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* 選單按鈕之間的間距 */
+    padding-bottom: 24px; /* 與下方作品卡片拉開距離 */
   }
 }
